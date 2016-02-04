@@ -24,7 +24,7 @@
 
 * Can I force them to run the download and CREATE TABLE OR INTERSECT scripts? 
 * Should I leave my RDS instances up and running or should I export them and save them on S3?
-  * Fuck no!
+  * Fuck no, shut them down when done with analysis. 
   
 * RDS snapshots will be stored on s3, but access them RDS console.
 
