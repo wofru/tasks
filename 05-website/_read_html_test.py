@@ -10,3 +10,9 @@ print html_str
 Html_file= open('test.html',"w")
 Html_file.write(html_str)
 Html_file.close()
+
+
+
+Html_file= open('jinja.html',"w")
+Html_file.write(html_str)
+Html_file.close()
