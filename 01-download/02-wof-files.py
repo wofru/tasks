@@ -19,6 +19,7 @@ matches = []
 gnames  = []
 geobox  = []
 
+print '...cycling through wof files'
 for root, dirnames, filenames in os.walk(wofFiles):
     for filename in fnmatch.filter(filenames, '*.geojson'):
         matches.append( (os.path.join(root, filename) ).replace(wofFiles,'').replace('.geojson','') )
@@ -30,9 +31,8 @@ for root, dirnames, filenames in os.walk(wofFiles):
 	    		gnames.append(name)
 	    		geobox.append(geom)
 	    	except:
-	    		#print data_file
 	    		gnames.append('quatroshapes or naturalearth')
-	    		geobox.append('meh')
+	    		geobox.append('-1.0,-1.0,1.0,1.0')
 
 df = pd.DataFrame(({'filename' : matches, 
  'wof_name': gnames,
