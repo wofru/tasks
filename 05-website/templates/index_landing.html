@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>{{wofName}}</title>
+  <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/> 
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+  <style>
+    #map{ height: 100% } /** CAN GET RID OF THIS AS SET BELOW **/
+    #map{ height: 200px }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>HELLO WELCOME TO WOFRU LANDING PAGE!!!!</h1>
+    <h1>{{wofName}}</h1>
+    <h2>{{wofFile}}</h2>
+    <p> {{wofBoun}}</p>
+    <p>NE: {{NELat}}, {{NELng}}</p>
+    <p>SW: {{SWLat}}, {{SWLng}}</p> 
+  </center>
+ 
+  <div id="map"></div>
+ 
+<p>Links: {{ urls|length }} </p>
+<ol align="left">
+{% set counter = 0 -%}
+{% for url in urls -%}
+<li><a href="{{ url }}">{{ url }}</a></li>
+{% set counter = counter + 1 -%}
+{% endfor -%}
+</ol>
+
+</body>
+</html>
