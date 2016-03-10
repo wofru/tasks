@@ -16,7 +16,7 @@ df = pd.read_csv(inCSV)
 
 df = df.fillna('')
 
-df = df.head(25)
+df = df.head(50)
 
 df['wof_url'] = 'http://wofru.github.io/' + df.filename.map(str) + '.html'
 

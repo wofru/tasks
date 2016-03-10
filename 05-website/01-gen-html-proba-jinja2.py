@@ -17,7 +17,7 @@ df = pd.read_csv(inCSV)
 
 df = df.fillna('')
 
-df = df.head(25)
+df = df.head(50)
 
 wd = '/Users/danielmsheehan/GIS/projects/wofru/tasks/05-website/JINJA2TEST/'
 wd2 = '/Users/danielmsheehan/GitHub/wofru-tasks/05-website/testjinja/'
