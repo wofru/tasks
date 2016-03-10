@@ -1,48 +1,77 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>{{wofName}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
-
+  <title>{{wofName}}</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <style>
+    #map{ height: 100% }
+    #map{ height: 400px }
+  </style>
 </head>
-
-<style>
-    html, body, #map {
-        height: 80px;
-    }
-    body {
-        padding: 0;
-        margin: 0;
-    }
-</style>
-
-<script src="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
-
-<script>
-	var map = L.map('map').setView([38.57, -94.71], 4);
-
-	L.tileLayer('http://{s}.tile.cloudmade.com/9067860284bc491e92d2342cc51d47d9/998/256/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Imagery Copywright<a href="http://cloudmade.com">CloudMade</a>'}).addTo(map);
-
-	var geojsonLayer = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/data/1/1.geojson");       
-	geojsonLayer.addTo(map);
-</script>
 <body>
-<center>
+  <center>
     <h1>{{wofName}}</h1>
     <h2>{{wofFile}}</h2>
-	<p> {{wofBoun}}</p>
-<div id="map"></div>
-</center>
+    <p> {{wofBoun}}</p>
+    <p>NE: {{NELat}}, {{NELng}}</p>
+    <p>SW: {{SWLat}}, {{SWLng}}</p> 
+  </center>
+ 
+  <div id="map"></div>
+ 
+  <script>
+ 
+  // initialize the map
+  var map = L.map('map').setView([42.35, -71.08], 13);
+  var SWLatJS = {{SWLat|safe}};
+  var SWLngJS = {{SWLng|safe}};
+  var NELatJS = {{NELat|safe}};
+  var NELngJS = {{NELng|safe}};
+  // var map = L.map('map').setView([0, 0], 13);
+  map.fitBounds([
+    [40.712, -74.227],
+    [40.774, -74.125]
+  ]);
+  map.fitBounds([
+    [38.969332, -82.350061],
+    [38.98621, -82.326371]
+  ]);
+    map.fitBounds([
+    [SWLatJS, SWLngJS],
+    [NELatJS, NELngJS]
+  ]);
+ 
+  // load a tile layer
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+    {
+      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+      maxZoom: 17,
+      // minZoom: 9
+    }).addTo(map);
+    
+  $.getJSON("neighborhoods.geojson",function(hoodData){
+    L.geoJson( hoodData ).addTo(map);
+  });
+ 
+  // $.getJSON("rodents.geojson",function(data){
+  //   var ratIcon = L.icon({
+  //     iconUrl: 'http://andywoodruff.com/maptime-leaflet/rat.png',
+  //     iconSize: [60,50]
+  //   });
+  //   L.geoJson(data,{
+  //     pointToLayer: function(feature,latlng){
+  //       var marker = L.marker(latlng,{icon: ratIcon});
+  //       marker.bindPopup(feature.properties.Location + '<br/>' + feature.properties.OPEN_DT);
+  //       return marker;
+  //     }
+  // }).addTo(map);
+  // });
+ 
+  </script>
 
-<!-- <iframe src="https://whosonfirst.mapzen.com/spelunker/id/219566951/" width=100% height=300></iframe> -->
-<!-- <iframe src="https://dl.dropboxusercontent.com/u/36281098/d3_tests/index.html" width=100% height=300></iframe> -->
 
-
-
-<p>{{ urls|length }} links</p>
+<p>Links: {{ urls|length }} </p>
 <ol align="left">
 {% set counter = 0 -%}
 {% for url in urls -%}

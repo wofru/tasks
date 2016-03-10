@@ -87,14 +87,9 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	    }
 	    #
 	    with open(fname, 'w') as htmlFile:
-	        # html = render_template('index.html', context)
-	        # htmlFile.write(html)
-	        # html = render_template('index_d3.html', context)
-	        # htmlFile.write(html)
-	        html = render_template('index_leaflet.html', context)
+	        html = render_template('index.html', context)
 	        htmlFile.write(html)
-
-
+	    
 
 	def main():
 	    create_index_html()
