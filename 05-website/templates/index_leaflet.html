@@ -24,6 +24,10 @@
  
   // initialize the map
   var map = L.map('map').setView([42.35, -71.08], 13);
+  var SWLat_js = {{SWLat|safe}};
+  var SWLng_js = {{SWLng|safe}};
+  var NELat_js = {{NELat|safe}};
+  var NELng_js = {{NELng|safe}};
   // var map = L.map('map').setView([0, 0], 13);
   map.fitBounds([
     [40.712, -74.227],
@@ -34,8 +38,8 @@
     [38.98621, -82.326371]
   ]);
     map.fitBounds([
-    [{{SWLat|safe}}, {{SWLng|safe}}],
-    [{{NELat|safe}}, {{NELng|safe}}]
+    [{{SWLat_js}}, {{SWLng_js}}],
+    [{{NELat_js}}, {{NELng_js}}]
   ]);
  
   // load a tile layer
