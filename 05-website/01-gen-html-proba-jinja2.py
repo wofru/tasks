@@ -1,6 +1,7 @@
 import pandas as pd 
 import os 
 import urllib
+import shutil
 
 drive = '/Users/danielmsheehan/'
 wd = drive + 'GIS/projects/wofru/'
@@ -20,6 +21,7 @@ df = df.head(25)
 
 wd = '/Users/danielmsheehan/GIS/projects/wofru/tasks/05-website/JINJA2TEST/'
 wd2 = '/Users/danielmsheehan/GitHub/wofru-tasks/05-website/testjinja/'
+wofFiles = wi + 'wof/whosonfirst-data-master/data/'
 
 
 filenames = df['filename'].tolist()
@@ -32,11 +34,15 @@ boundboxs = df['boundbox'].tolist()
 import os
 from jinja2 import Environment, FileSystemLoader
 
-print '...making webpage dirs'
+print '...making webpage dirs and copy existing geojson files'
 for i in filenames:
-  newpath = 'testjinja/'+i
-  if not os.path.exists(newpath):
-    os.makedirs(newpath)
+  	newpath = 'testjinja/'+i
+  	if not os.path.exists(newpath):
+  		os.makedirs(newpath)
+  	inFile = wofFiles+i+'.geojson'
+  	ouFile = newpath+'/'+i.split('/')[-1]+'.geojson'
+  	print inFile, ouFile
+  	shutil.copy2(inFile, ouFile)	
 
 for f, g, b in zip(filenames,wof_names,boundboxs):
 
@@ -71,6 +77,8 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	    with open(fname, 'w') as htmlFile:
 	        html = render_template('index.html', context)
 	        htmlFile.write(html)
+
+
 
 
 	def main():

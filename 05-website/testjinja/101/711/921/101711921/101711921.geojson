@@ -1,0 +1,73 @@
+{
+  "id": 101711921,
+  "type": "Feature",
+  "properties": {
+    "edtf:cessation":"uuuu",
+    "edtf:inception":"uuuu",
+    "geom:area":0.00005,
+    "geom:bbox":"-82.368869,40.77074,-82.359012,40.776116",
+    "geom:latitude":40.773461,
+    "geom:longitude":-82.363858,
+    "iso:country":"US",
+    "lbl:latitude":40.773467,
+    "lbl:longitude":-82.363858,
+    "mps:latitude":40.773467,
+    "mps:longitude":-82.363858,
+    "qs:a0":"United States",
+    "qs:a1":"*Ohio",
+    "qs:a1_lc":"39",
+    "qs:a1r":"*",
+    "qs:adm0":"United States",
+    "qs:id":0,
+    "qs:la_lc":"*",
+    "qs:level":"locality",
+    "qs:loc":"Mifflin",
+    "qs:loc_alt":"Mifflin village",
+    "qs:loc_lc":"3950036",
+    "qs:pop":0,
+    "qs:source":"AUS Census",
+    "qs:type":"G4110",
+    "src:geom":"quattroshapes",
+    "src:geom_alt":[],
+    "src:lbl:centroid":"mapshaper",
+    "wof:belongsto":[
+        85688485,
+        102191575,
+        404524775,
+        85633793,
+        102084829
+    ],
+    "wof:breaches":[],
+    "wof:concordances":{
+        "gn:id":5162903,
+        "wd:id":"Q2053760"
+    },
+    "wof:country":"US",
+    "wof:geomhash":"118e8da846e48e253316830dcb1ab117",
+    "wof:hierarchy":[
+        {
+            "continent_id":102191575,
+            "country_id":85633793,
+            "county_id":102084829,
+            "localadmin_id":404524775,
+            "locality_id":101711921,
+            "region_id":85688485
+        }
+    ],
+    "wof:id":101711921,
+    "wof:lastmodified":1452293468,
+    "wof:name":"Mifflin",
+    "wof:parent_id":404524775,
+    "wof:placetype":"locality",
+    "wof:superseded_by":[],
+    "wof:supersedes":[],
+    "wof:tags":[]
+},
+  "bbox": [
+    -82.368869,
+    40.77074,
+    -82.359012,
+    40.776116
+],
+  "geometry": {"coordinates":[[[-82.367136,40.775971],[-82.363997,40.776046],[-82.35901200000001,40.776116],[-82.35902,40.774802],[-82.35903,40.773939],[-82.35905200000001,40.77074],[-82.363524,40.770877],[-82.36812500000001,40.770992],[-82.368173,40.770996],[-82.36823699999999,40.770998],[-82.368319,40.770997],[-82.368425,40.770982],[-82.368612,40.770935],[-82.368694,40.770919],[-82.368793,40.770909],[-82.368816,40.773341],[-82.36882900000001,40.773776],[-82.36883400000001,40.773929],[-82.36883400000001,40.774628],[-82.368869,40.775925],[-82.367136,40.775971]]],"type":"Polygon"}
+}

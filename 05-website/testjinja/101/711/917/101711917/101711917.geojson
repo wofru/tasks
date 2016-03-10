@@ -1,0 +1,73 @@
+{
+  "id": 101711917,
+  "type": "Feature",
+  "properties": {
+    "edtf:cessation":"uuuu",
+    "edtf:inception":"uuuu",
+    "geom:area":0.000205,
+    "geom:bbox":"-82.268905,40.76954,-82.250186,40.780737",
+    "geom:latitude":40.775214,
+    "geom:longitude":-82.259617,
+    "iso:country":"US",
+    "lbl:latitude":40.775223,
+    "lbl:longitude":-82.259618,
+    "mps:latitude":40.775223,
+    "mps:longitude":-82.259618,
+    "qs:a0":"United States",
+    "qs:a1":"*Ohio",
+    "qs:a1_lc":"39",
+    "qs:a1r":"*",
+    "qs:adm0":"United States",
+    "qs:id":0,
+    "qs:la_lc":"*",
+    "qs:level":"locality",
+    "qs:loc":"Hayesville",
+    "qs:loc_alt":"Hayesville village",
+    "qs:loc_lc":"3934636",
+    "qs:pop":0,
+    "qs:source":"AUS Census",
+    "qs:type":"G4110",
+    "src:geom":"quattroshapes",
+    "src:geom_alt":[],
+    "src:lbl:centroid":"mapshaper",
+    "wof:belongsto":[
+        85688485,
+        102191575,
+        404524693,
+        85633793,
+        102084829
+    ],
+    "wof:breaches":[],
+    "wof:concordances":{
+        "gn:id":5157178,
+        "wd:id":"Q2591284"
+    },
+    "wof:country":"US",
+    "wof:geomhash":"cc823e436a5d063f3cc667d699611233",
+    "wof:hierarchy":[
+        {
+            "continent_id":102191575,
+            "country_id":85633793,
+            "county_id":102084829,
+            "localadmin_id":404524693,
+            "locality_id":101711917,
+            "region_id":85688485
+        }
+    ],
+    "wof:id":101711917,
+    "wof:lastmodified":1452293468,
+    "wof:name":"Hayesville",
+    "wof:parent_id":404524693,
+    "wof:placetype":"locality",
+    "wof:superseded_by":[],
+    "wof:supersedes":[],
+    "wof:tags":[]
+},
+  "bbox": [
+    -82.268905,
+    40.76954,
+    -82.250186,
+    40.780737
+],
+  "geometry": {"coordinates":[[[-82.262067,40.780736],[-82.261782,40.780734],[-82.259619,40.780724],[-82.256069,40.78073],[-82.25132600000001,40.780664],[-82.250265,40.780641],[-82.25026099999999,40.773522],[-82.250186,40.76992],[-82.250761,40.769901],[-82.259663,40.769721],[-82.259708,40.76972],[-82.259738,40.76972],[-82.259916,40.76972],[-82.26203099999999,40.769683],[-82.26264999999999,40.769653],[-82.26500900000001,40.769619],[-82.268905,40.76954],[-82.268874,40.773057],[-82.268821,40.780737],[-82.262067,40.780736]]],"type":"Polygon"}
+}
