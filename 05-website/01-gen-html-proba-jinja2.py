@@ -40,8 +40,11 @@ for i in filenames:
   	if not os.path.exists(newpath):
   		os.makedirs(newpath)
   	inFile = wofFiles+i+'.geojson'
-  	ouFile = newpath+'/'+i.split('/')[-1]+'.geojson'
-  	print inFile, ouFile
+  	z       = i.split('/')[:-1]
+  	jsonloc = '/'.join(z)
+  	#ouFile = newpath+'/'+jsonloc+'.geojson'
+  	ouFile = webLoc+'/'+jsonloc + '/neighborhoods.geojson'
+  	print i, inFile, ouFile
   	shutil.copy2(inFile, ouFile)	
 
 for f, g, b in zip(filenames,wof_names,boundboxs):
@@ -75,9 +78,12 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	    }
 	    #
 	    with open(fname, 'w') as htmlFile:
-	        html = render_template('index.html', context)
+	        # html = render_template('index.html', context)
+	        # htmlFile.write(html)
+	        # html = render_template('index_d3.html', context)
+	        # htmlFile.write(html)
+	        html = render_template('index_leaflet.html', context)
 	        htmlFile.write(html)
-
 
 
 
