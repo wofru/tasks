@@ -74,7 +74,7 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 
 	def create_index_html():
 	    fname = webLoc+f+".html"
-	    urls = ['https://mapzen.com/', 'http://nygeog.com']
+	    urls = ['https://mapzen.com/', 'http://nygeog.com', 'http://wofru.github.io']
 	    context = {
 	        'urls': urls,
 	        'wofName': wofName,
