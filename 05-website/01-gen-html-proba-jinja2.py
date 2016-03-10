@@ -56,6 +56,11 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	wofName = g
 	wofFile = f
 	wofBoun = b
+	NELat = b.split(',')[3]
+	NElng = b.split(',')[2]
+	SWLat = b.split(',')[1]
+	SWlng = b.split(',')[0]
+
 	PATH = os.path.dirname(os.path.abspath(__file__))
 	TEMPLATE_ENVIRONMENT = Environment(
 	    autoescape=False,
@@ -74,7 +79,11 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	        'urls': urls,
 	        'wofName': wofName,
 			'wofFile': wofFile,
-			'wofBoun': wofBoun
+			'wofBoun': wofBoun,
+			'NELat': NELat,
+			'NElng': NElng,
+			'SWLat': SWLat,
+			'SWlng': SWlng,
 	    }
 	    #
 	    with open(fname, 'w') as htmlFile:
