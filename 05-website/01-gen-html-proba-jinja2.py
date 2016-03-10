@@ -22,7 +22,7 @@ df = df.head(25)
 wd = '/Users/danielmsheehan/GIS/projects/wofru/tasks/05-website/JINJA2TEST/'
 wd2 = '/Users/danielmsheehan/GitHub/wofru-tasks/05-website/testjinja/'
 wofFiles = wi + 'wof/whosonfirst-data-master/data/'
-
+webLoc = '/Users/danielmsheehan/GitHub/wofru.github.com/'
 
 filenames = df['filename'].tolist()
 wof_names = df['wof_name'].tolist()
@@ -36,7 +36,7 @@ from jinja2 import Environment, FileSystemLoader
 
 print '...making webpage dirs and copy existing geojson files'
 for i in filenames:
-  	newpath = 'testjinja/'+i
+  	newpath = webLoc+i
   	if not os.path.exists(newpath):
   		os.makedirs(newpath)
   	inFile = wofFiles+i+'.geojson'
@@ -65,7 +65,7 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 
 
 	def create_index_html():
-	    fname = "testjinja/"+f+".html"
+	    fname = webLoc+f+".html"
 	    urls = ['https://mapzen.com/', 'http://nygeog.com']
 	    context = {
 	        'urls': urls,
