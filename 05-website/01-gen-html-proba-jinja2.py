@@ -43,7 +43,7 @@ for i in filenames:
   	z       = i.split('/')[:-1]
   	jsonloc = '/'.join(z)
   	#ouFile = newpath+'/'+jsonloc+'.geojson'
-  	ouFile = webLoc+'/'+jsonloc + '/neighborhoods.geojson'
+  	ouFile = webLoc+'/'+jsonloc + '/wofru.geojson'
   	print i, inFile, ouFile
   	shutil.copy2(inFile, ouFile)	
 
