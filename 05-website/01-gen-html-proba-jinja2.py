@@ -2,38 +2,10 @@ import pandas as pd
 import os 
 import urllib
 import shutil
-
-drive = '/Users/danielmsheehan/'
-wd = drive + 'GIS/projects/wofru/'
-wk = wd + 'tasks/01-download/'
-wi = wk + 'data/input/'
-wp = wk + 'data/processing/'
-wo = wk + 'data/output/'
-wt = wk + 'data/tables/'
-
-inCSV = wp+'wof_list.csv'
-
-df = pd.read_csv(inCSV)
-
-df = df.fillna('')
-
-df = df.head(50)
-
-wd = '/Users/danielmsheehan/GIS/projects/wofru/tasks/05-website/JINJA2TEST/'
-wd2 = '/Users/danielmsheehan/GitHub/wofru-tasks/05-website/testjinja/'
-wofFiles = wi + 'wof/whosonfirst-data-master/data/'
-webLoc = '/Users/danielmsheehan/GitHub/wofru.github.com/'
-
-filenames = df['filename'].tolist()
-wof_names = df['wof_name'].tolist()
-boundboxs = df['boundbox'].tolist()
-
+from jinja2 import Environment, FileSystemLoader
+from _settings import * 
 
 #!/usr/bin/env python
-
-import os
-from jinja2 import Environment, FileSystemLoader
-
 print '...making webpage dirs and copy existing geojson files'
 for i in filenames:
   	newpath = webLoc+i
@@ -44,8 +16,16 @@ for i in filenames:
   	jsonloc = '/'.join(z)
   	#ouFile = newpath+'/'+jsonloc+'.geojson'
   	ouFile = webLoc+'/'+jsonloc + '/wofru.geojson'
-  	print i, inFile, ouFile
+  	#print i, inFile, ouFile
   	shutil.copy2(inFile, ouFile)	
+  	
+	shutil.rmtree(webLoc+'/'+jsonloc+'/css')
+	shutil.rmtree(webLoc+'/'+jsonloc+'/js')
+	shutil.rmtree(webLoc+'/'+jsonloc+'/data')
+
+	copyanything(d3css, webLoc+'/'+jsonloc+'/css')#+ '/css')
+	copyanything(d3_js, webLoc+'/'+jsonloc+'/js')#+ '/js')
+	copyanything(d3dat, webLoc+'/'+jsonloc+'/data')# + '/data')
 
 for f, g, b in zip(filenames,wof_names,boundboxs):
 
@@ -67,10 +47,8 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	    loader=FileSystemLoader(os.path.join(PATH, 'templates')),
 	    trim_blocks=False)
 
-
 	def render_template(template_filename, context):
 	    return TEMPLATE_ENVIRONMENT.get_template(template_filename).render(context)
-
 
 	def create_index_html():
 	    fname = webLoc+f+".html"
@@ -90,7 +68,6 @@ for f, g, b in zip(filenames,wof_names,boundboxs):
 	        html = render_template('index.html', context)
 	        htmlFile.write(html)
 	    
-
 	def main():
 	    create_index_html()
 
